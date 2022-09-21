@@ -12,15 +12,16 @@ create table Menu_items(
 order_id int unique not null auto_increment,
 item_name varchar(100) not null,
 course_type varchar(100) not null,
-price decimal(11) not null,
+price float(3,2) not null,
 primary key (order_id));
 
 show tables;
 
 alter table customers add gender char default "";
 describe customers;
-alter table customers drop gender;
+alter table menu_items modify price decimal(3,2);
 describe customers;
+describe menu_items;
 select*from customers;
 select*from Menu_items;
 select order_id, price from Menu_items;
