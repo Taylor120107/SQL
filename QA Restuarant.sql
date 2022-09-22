@@ -73,3 +73,33 @@ update order_items set ord_id=1 where order_id=1;
 
 insert into customers(cust_name, cust_email, cust_phone) values("Chloe", "C45@msn.com", "0764874562"),("Chloe", "C45@msn.com", "0764874562");#can run multiple inputs on this one line
 
+#read from tables to view the records:
+#- select * from table_name
+#- Select col1,col2,col4 from table_name;
+#where caluse
+# select * from table_name where col_name=value 
+select * from order_items where col_name= ord_id=4;#filtering what you see
+
+#operators
+# = equals to... 
+# > greater than - exclusive
+# < less than - exclusive
+# !=
+# >= greater than - inclusive
+# <= less than - inclusive
+select * from menu_items where price>5.00;
+select * from menu_items where price>1.00 and price<5.00;#items between these ranges exclusive of 1 and 5
+#can use "between" and this will be an inclusive range for above it would include 1 and 5
+# search for patterns - text data
+select * from menu_items where item_name like "%s";#percentage sign shows items where character is proceeding
+select * from menu_items where item_name like "s%";#this is the opposite look for items with character at the beginning
+
+select distinct ord_id from order_items;# select unique items 
+#ordering data
+select * from menu_items order by item_name; #default is alphabetical but if you put "desc"/"asc" on the end it will reverse
+
+#limiting data
+select * from menu_items limit 2; #will give first 2 records in table 
+select * from menu_items order by item_id desc limit 2; # can add multiple commands together 
+
+#aggregate functions- when you have a rnage and want to perform an operation on them to return
