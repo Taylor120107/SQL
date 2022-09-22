@@ -139,7 +139,9 @@ select customer.c_name, cust.phone ,orders.order_id from customers c join orders
 #left outer joins-
 select customer.c_name, cust.phone ,orders.order_id from customers c left outer join orders o on c.cust_id=o.cust_id;#customers table is looking for records to match in the order table(displayed on the right of it), will state null for no order records
 #right outer joins-
-select customer.c_name, cust.phone ,orders.order_id from customers c right outer join orders o on c.cust_id=o.cust_id#orders table is looking for records to mathc in the customer table(displayed on the left if it), will still say null for those without order recrords
+select customer.c_name, cust.phone ,orders.order_id from customers c right outer join orders o on c.cust_id=o.cust_id;#orders table is looking for records to mathc in the customer table(displayed on the left if it), will still say null for those without order recrords
+
+
 
 
 
