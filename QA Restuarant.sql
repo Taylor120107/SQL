@@ -103,3 +103,44 @@ select * from menu_items limit 2; #will give first 2 records in table
 select * from menu_items order by item_id desc limit 2; # can add multiple commands together 
 
 #aggregate functions- when you have a rnage and want to perform an operation on them to return
+#average-avg
+#sum- sum
+#minimum-min
+#maximum-max
+#count-count
+
+select avg(price) from menu_items;
+select min(price) from menu_items;
+select sum(price) from menu_items;
+select count(price) from menu_items;
+
+#nested queries- a query in a query
+select cust_id from orders where order_id=2; #returns no
+select * from customers where cust_id=5;
+#nested for above input
+select * from customers where cust_id-(select cust_id from orders where ord_id=2);
+
+select item_id from order_items where ord_id=1; 
+select * from menu_items where item_id=1;
+#nested query below
+select * from menu_items where item_id=(select item_id from order_items where ord_id=1);
+
+#nested queries work from right to left
+
+#joins
+#inner joins- default sql join-combines tables together based on present data in tables
+select*from customers;
+select* from orders;
+select * from customers join orders on customers.cust_id=orders.cust_id;
+#tables with same column names specify which table it needs to come from and which position you want it in
+select customer.c_name, cust.phone ,orders.order_id from customers c join orders o on c.cust_id=o.cust_id;
+#can give tables alises such as c for customer and o for orders
+#outer joins- 2 types left outer join and right outer join
+#left outer joins-
+select customer.c_name, cust.phone ,orders.order_id from customers c left outer join orders o on c.cust_id=o.cust_id;#customers table is looking for records to match in the order table(displayed on the right of it), will state null for no order records
+#right outer joins-
+select customer.c_name, cust.phone ,orders.order_id from customers c right outer join orders o on c.cust_id=o.cust_id#orders table is looking for records to mathc in the customer table(displayed on the left if it), will still say null for those without order recrords
+
+
+
+
